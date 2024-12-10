@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios');
 const cors = require('cors');
 require('dotenv').config();
 const taxiDataRoutes = require('../src/routes/TaxiRoutes');
