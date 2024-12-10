@@ -1,5 +1,27 @@
-const app = require("./src/app"); // Import your Express app
-const { createServer } = require("@vercel/node"); // Required for Vercel serverless functions
+// app.js
+const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
+require('dotenv').config();
+const taxiDataRoutes = require('./src/routes/TaxiRoutes');
+const TestRoutes = require('./src/routes/TestRoutes')
 
-// Export the serverless function
-module.exports = createServer(app);
+const app = express();
+const PORT = process.env.PORT || 5000;
+const API_URL = process.env.API_URL;
+
+// Middleware
+app.use(cors({
+    credentials: true,
+    origin: ["http://localhost:3000", "http://www.localhost:3000"]
+  }));
+app.use(express.json());
+
+// Declare the routes
+app.use('/', TestRoutes);
+app.use('/api', taxiDataRoutes);
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
