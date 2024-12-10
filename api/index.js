@@ -1,11 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+
 const taxiDataRoutes = require('../src/routes/TaxiRoutes');
 const TestRoutes = require('../src/routes/TestRoutes');
 
 const app = express();
-const API_URL = process.env.API_URL;
 
 // Middleware
 app.use(cors({
