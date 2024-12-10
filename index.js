@@ -20,8 +20,3 @@ app.use(express.json());
 // Declare the routes
 app.use('/', TestRoutes);
 app.use('/api', taxiDataRoutes);
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
