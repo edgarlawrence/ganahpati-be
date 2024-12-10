@@ -4,6 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 require('dotenv').config();
 const taxiDataRoutes = require('./src/routes/TaxiRoutes');
+const TestRoutes = require('./src/routes/TestRoutes')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +18,7 @@ app.use(cors({
 app.use(express.json());
 
 // Declare the routes
+app.use('/', TestRoutes);
 app.use('/api', taxiDataRoutes);
 
 // Start the server
