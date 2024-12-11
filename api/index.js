@@ -10,7 +10,7 @@ const app = express();
 // Middleware
 app.use(cors({
     credentials: true,
-    origin: ["http://localhost:3000", "http://www.localhost:3000", "https://your-frontend.vercel.app"]
+    origin: ["http://localhost:3000", "http://www.localhost:3000", "https://ganahpati-fe.vercel.app/"]
 }));
 app.use(express.json());
 
